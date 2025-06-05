@@ -20,6 +20,10 @@ if (isset($_GET['action'])) {
     require __DIR__ . '/../controllers/edit_post.php';
     exit;
   }
+      if ($action === 'post_comment') {
+    require __DIR__ . '/../controllers/post_comment.php';
+    exit;
+  }
 
     if ($action === 'follow') {
         require __DIR__ . '/../controllers/follow.php';
@@ -80,7 +84,7 @@ if (isset($_GET['action'])) {
 }
 
 $page = isset($_GET['page']) ? basename($_GET['page']) : 'welcome';
-$allowed_pages = ['welcome', 'login', 'register', 'mainpage', 'profile', 'myposts', 'home', 'userprofile', 'edit_post'];
+$allowed_pages = ['welcome', 'login', 'register', 'mainpage', 'profile', 'myposts', 'home', 'userprofile', 'edit_post', 'comments'];
 
 if (!in_array($page, $allowed_pages)) {
     http_response_code(404);
@@ -103,6 +107,9 @@ switch ($page) {
         break;
     case 'edit_post':
         require __DIR__ . '/../controllers/display_post_info.php';
+        break;
+    case 'comments':
+        require __DIR__ . '/../controllers/comments.php';
         break;
         
 

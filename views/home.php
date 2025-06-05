@@ -27,6 +27,17 @@
           </h3>
 
           <p><?= nl2br(htmlspecialchars($post['content'] ?? '')) ?></p>
+
+          <div class="comment-section">
+            <button class="comment-button" onclick="saveScrollAndGoToComments('<?= urlencode($post['_id']) ?>')">
+              View Comments
+            </button>
+          </div>
+
+
+
+
+           
           <div class="post-meta">
             Posted on 
             <?php
@@ -43,6 +54,12 @@
   </div>
 
   <script>
+
+  function saveScrollAndGoToComments(postId) {
+    localStorage.setItem('homeScroll', window.scrollY);
+    window.location.href = '?page=comments&post_id=' + postId;
+  }
+
     let timer;
 
     document.getElementById("searchBar").addEventListener("input", function () {
@@ -94,6 +111,17 @@
         results.innerHTML = '';
       }
     });
+
+
+      window.addEventListener('DOMContentLoaded', function() {
+    const scroll = localStorage.getItem('homeScroll');
+    if (scroll !== null) {
+      window.scrollTo(0, parseInt(scroll, 10));
+      localStorage.removeItem('homeScroll');
+    }
+  });
+
+
   </script>
 
 </body>

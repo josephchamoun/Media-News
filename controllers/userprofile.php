@@ -70,7 +70,7 @@ if (preg_match('/^[a-f\d]{24}$/i', $profileUserId)) {
         $followersCount = 0;
     }
 } else {
-    $followersCount = 0; // Invalid user ID
+    $followersCount = 0; 
 }
 
 

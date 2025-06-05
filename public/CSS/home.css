@@ -1,104 +1,323 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;               /* Remove vertical margins */
-  padding: 1rem 2rem;      /* Add horizontal padding for some spacing */
-  background: #f9f9f9;
-  /* Remove max-width to make it full width */
-  width: 100vw;
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+  min-height: 100vh;
+  color: #ffffff;
+  line-height: 1.6;
+  padding: 100px 20px 20px 20px; /* Top padding for navbar space */
+}
+
+/* Main Title */
 h1 {
   text-align: center;
-  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #ffffff, #e0e7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-form textarea {
-  width: 100%;
-  max-width: 400px;      
-  height: 30px;
-  padding: 0.3rem;
-  font-size: 0.9rem;
-  margin: 0 auto 1rem;   
-  display: block;       
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  resize: vertical;
-  box-sizing: border-box;
-}
-
+/* Search Bar Styling */
 #searchBar {
-  width: 300px;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  outline: none;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  display: block;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+#searchBar::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 #searchBar:focus {
-  border-color: #007BFF;
-  box-shadow: 0 0 5px rgba(0,123,255,0.3);
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 
+/* Search Results */
 #results {
-  border: 1px solid #eee;
-  border-radius: 6px;
-  max-width: 300px;
-  background-color: #fafafa;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 0 auto 2rem;
 }
 
-#results p {
-  padding: 8px 12px;
-  margin: 0;
+.search-result {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.search-result:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.user-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.user-link:hover {
+  color: #e0e7ff;
+}
+
+/* Posts Container */
+#postsContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Individual Post Styling */
+.post {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.post::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
+  border-radius: 20px 20px 0 0;
+}
+
+.post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Post Header */
+.post h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.post h3 span {
+  color: #e0e7ff;
+  transition: all 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.post h3 span:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* Post Content */
+.post p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Comment Section */
+.comment-section {
+  margin: 20px 0;
+}
+
+.comment-button {
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  color: #ffffff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  border-bottom: 1px solid #eee;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
-#results p:hover {
-  background-color: #f0f0f0;
+.comment-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(45deg, #2563eb, #7c3aed);
 }
 
+.comment-button:active {
+  transform: translateY(0);
+}
+
+/* Post Meta Information */
+.post-meta {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px;
+  margin-top: 20px;
+}
+
+/* Empty State */
+#postsContainer p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 90px 15px 15px 15px; /* Adjusted for mobile navbar */
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  #searchBar {
+    padding: 12px 18px;
+    font-size: 1rem;
+  }
+  
+  .post {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .post h3 {
+    font-size: 1.2rem;
+  }
+  
+  .post p {
+    font-size: 1rem;
+  }
+  
+  .comment-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 270px 10px 15px 10px; /* Extra space for stacked mobile navbar */
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .post {
+    padding: 15px;
+  }
+  
+  .post h3 {
+    font-size: 1.1rem;
+  }
+  
+  .comment-button {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #2563eb, #7c3aed);
+}
+
+/* Animation for loading */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .post {
-  background: white;
-  padding: 1.5rem;      
-  margin-bottom: 1rem;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
-  font-size: 1.2rem;    
-  line-height: 1.4;      
+  animation: fadeInUp 0.6s ease-out;
 }
 
-
-form button {
-  display: block;         
-  margin: 10 auto;          
-  margin-top: 0.5rem;     
-  background-color: #3498db;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
+/* Glassmorphism Enhancement */
+.post, #searchBar, .search-result {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-form button:hover {
-  background-color: #2980b9;
+/* Hover effects for better UX */
+.post:hover .post-meta {
+  color: rgba(255, 255, 255, 0.8);
 }
 
+/* Focus states for accessibility */
+.comment-button:focus {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
 
-
-.post-meta {
-  font-size: 0.8rem;
-  color: #666;
-  margin-top: 0.5rem;
-  text-align: right;
+#searchBar:focus {
+  border-color: rgba(96, 165, 250, 0.5);
 }
