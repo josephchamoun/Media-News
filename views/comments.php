@@ -8,10 +8,7 @@
 </head>
 <body>
 
-  <div class="post">
-    <h2>Post Title</h2>
-    <p>This is the post content...</p>
-  </div>
+  
 <div class="go-back">
   <button onclick="window.location.href='?page=home'" style="background:none;border:none;cursor:pointer;font-size:1.2em;">
     &#8592; Go Back

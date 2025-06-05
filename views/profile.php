@@ -26,7 +26,7 @@ $email = $_SESSION['email'] ?? '';
       <div class="user-info">
         <h2><?= htmlspecialchars($name) ?></h2>
         <p><?= htmlspecialchars($email) ?></p>
-        <h2>Followers: <?= htmlspecialchars($followersCount) ?></h2>
+        <h2 class="followers-count">Followers: <?= htmlspecialchars($followersCount) ?></h2>
       </div>
     </section>
 

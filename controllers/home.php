@@ -8,11 +8,13 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $collection = $db->posts;
+$userId = $_SESSION['user_id'];
 
 $cursor = $collection->find(
-    [],
+    ['user_id' => ['$ne' => $userId]],  
     ['sort' => ['created_at' => -1]]
 );
+
 $posts = iterator_to_array($cursor);
 
 
