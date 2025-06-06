@@ -12,7 +12,7 @@ if ($user && password_verify($password, $user['password'])) {
     $_SESSION['user_id'] = (string)$user['_id'];
     $_SESSION['email'] = $user['email'];
     $_SESSION['name'] = $user['name'];
-    header("Location: /?page=profile");
+    header("Location: /?page=home");
 } else {
     die("Invalid credentials.");
 }

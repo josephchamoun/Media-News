@@ -10,7 +10,12 @@
 
   
 <div class="go-back">
-  <button onclick="window.location.href='?page=home'" style="background:none;border:none;cursor:pointer;font-size:1.2em;">
+  <button
+    onclick="
+      const page = localStorage.getItem('homePage') || 'home';
+      window.location.href = '?page=' + page;
+    "
+    style="background:none;border:none;cursor:pointer;font-size:1.2em;">
     &#8592; Go Back
   </button>
 </div>

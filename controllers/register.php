@@ -22,6 +22,6 @@ $_SESSION['user_id'] = (string)$insert->getInsertedId();
 $_SESSION['email'] = $email;
 $_SESSION['name'] = $name;
 
-header("Location: /?page=profile");
+header("Location: /?page=home");
 exit;
 

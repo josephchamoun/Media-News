@@ -33,11 +33,6 @@
               View Comments
             </button>
           </div>
-
-
-
-
-           
           <div class="post-meta">
             Posted on 
             <?php
@@ -57,6 +52,8 @@
 
   function saveScrollAndGoToComments(postId) {
     localStorage.setItem('homeScroll', window.scrollY);
+    // save the page name 
+    localStorage.setItem('homePage', 'home');
     window.location.href = '?page=comments&post_id=' + postId;
   }
 
@@ -118,6 +115,7 @@
     if (scroll !== null) {
       window.scrollTo(0, parseInt(scroll, 10));
       localStorage.removeItem('homeScroll');
+      localStorage.removeItem('homePage'); 
     }
   });
 
