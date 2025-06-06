@@ -1,0 +1,129 @@
+/* /CSS/dashboard.css */
+
+body.dashboard-page {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+    color: #f8fafc;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+
+.dashboard-container {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 40px 35px;
+   background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dashboard-container h1,
+.dashboard-container h2 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    letter-spacing: 0.6px;
+    font-weight: 700;
+    position: relative;
+}
+
+.dashboard-container h1::after,
+.dashboard-container h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    margin: 12px auto 0;
+    background-color: #60a5fa;
+    border-radius: 3px;
+    box-shadow: 0 0 8px #60a5faaa;
+}
+
+.dashboard-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 50px 0;
+}
+
+.dashboard-container li {
+    background-color: rgba(246, 246, 246, 0.08);
+    margin-bottom: 18px;
+    padding: 22px 28px;
+    border-left: 5px solid #60a5fa;
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.45);
+    transition: background 0.35s ease, border-color 0.35s ease, transform 0.25s ease;
+}
+
+.dashboard-container li:hover {
+    background-color: rgba(103, 111, 224, 0.13);
+    border-left-color: #93c5fd;
+    transform: translateX(6px);
+}
+
+.dashboard-container strong {
+    color: #e2e8f0;
+    font-weight: 700;
+}
+
+.dashboard-container .summary-section {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 32px 36px;
+    border-radius: 18px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.5);
+    margin-top: 50px;
+    animation: fadeIn 0.9s ease-in-out;
+}
+
+.dashboard-container .summary-section p {
+    margin: 14px 0;
+    color: #dbeafe;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding-left: 14px;
+    border-left: 5px solid #60a5fa;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-container {
+        margin: 40px 25px;
+        padding: 30px 25px;
+    }
+
+    .dashboard-container h1,
+    .dashboard-container h2 {
+        font-size: 1.9rem;
+    }
+
+    .dashboard-container li {
+        padding: 18px 22px;
+        border-left-width: 4px;
+    }
+
+    .dashboard-container .summary-section {
+        padding: 25px 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-container h1,
+    .dashboard-container h2 {
+        font-size: 1.6rem;
+    }
+
+    .dashboard-container li {
+        padding: 16px 18px;
+    }
+}

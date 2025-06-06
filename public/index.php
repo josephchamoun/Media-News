@@ -84,7 +84,7 @@ if (isset($_GET['action'])) {
 }
 
 $page = isset($_GET['page']) ? basename($_GET['page']) : 'welcome';
-$allowed_pages = ['welcome', 'login', 'register', 'mainpage', 'profile', 'myposts', 'home', 'userprofile', 'edit_post', 'comments'];
+$allowed_pages = ['welcome', 'login', 'register', 'mainpage', 'profile', 'myposts', 'home', 'userprofile', 'edit_post', 'comments', 'dashboard'];
 
 if (!in_array($page, $allowed_pages)) {
     http_response_code(404);
@@ -110,6 +110,9 @@ switch ($page) {
         break;
     case 'comments':
         require __DIR__ . '/../controllers/comments.php';
+        break;
+    case 'dashboard':
+        require __DIR__ . '/../controllers/dashboard.php';
         break;
         
 
